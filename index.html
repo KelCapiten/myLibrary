@@ -8,27 +8,29 @@
     <title>Objects</title>
 </head>
 <body>
+    <div class="cover"></div>
     <di class="container">
-        <div class="addBook"><img class="addBookImg" src="images/icons8-book-shelf-94.png" alt="Add book button"></div>
-        <din class="addBookDiv">
+        <button class="addBook"><img class="addBookImg" src="images/icons8-book-shelf-94.png" alt="Add book button"></button>
+        <form action="#" class="addBookDiv">
             <div class="bookInfo">
                 <div style="margin-bottom: 5px;"><h3>Want to add another book?</34></div>
                 <fieldset>
-                    <legend>Book Name</legend>
-                    <input style="width: 95%;" class="regInfoInput" type="text">
+                    <legend style="padding-left: 15px;">Book Name</legend>
+                    <input aria-label="book name" style="width: 95%;" class="regInfoInput" type="text">
                 </fieldset>
             </div>
             <div class="bookInfo2">
                 <fieldset style="flex: 1;">
-                    <legend>Book Author</legend>
-                    <input style="width: 90%;" class="regInfoInput" type="text">
+                    <legend style="padding-left: 15px;">Book Author</legend>
+                    <input aria-label="book author" style="width: 90%;" class="regInfoInput" type="text">
                 </fieldset>
                 <fieldset style="flex: 1;">
-                    <legend>Book Year</legend>
-                    <input style="width: 40%;" class="regInfoInput" type="text">
+                    <legend style="padding-left: 10px;">Book Year</legend>
+                    <input aria-label="book year" style="width: 40%;" class="regInfoInput" type="text">
                 </fieldset>
             </div>
-        </din>
+            <div class="formButton" style="display: flex;"><button type="submit" class="button">Done</button></div>
+        </form>
         <div class="div1">
             <div class="bookCard card1" id="1">
                 <div class="section1"></div>
@@ -78,9 +80,17 @@
                     <h5>Year: <span class="year"></span></h5>
                 </div>
             </div>
+            <div class="placeholderBookCard card7" id="7">
+                <div class="section1"></div>
+                <div class="section2">
+                    <h5>Book Name: <span class="name"></span></h5>
+                    <h5>Author: <span class="author"></span></h5>
+                    <h5>Year: <span class="year"></span></h5>
+                </div>
+            </div>
         </div>
         <div class="div2">
-            <div class="dim">
+            <div class="dim2">
                 <div class="bookTittle"></div>
                 <div class="bookSummary"></div>    
             </div>
