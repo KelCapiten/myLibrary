@@ -1,0 +1,158 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container {
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr 1.5fr;
+    gap: 0.5rem;
+    background: url(images/wallpaper.jpg);
+    background-position: center;
+}
+
+.addBook {
+    position: fixed;
+    z-index: 1;
+    top: 2rem;
+    left: 3rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(105, 170, 201, 0.836);
+    border: solid 2px rgba(0, 0, 255, 0.39);
+    box-shadow: 0 0 1rem 2px rgb(20, 19, 68);
+    transition: all 100ms ease;
+}
+.addBook:hover {
+    top: 1.9rem;
+    border: solid 2px orange;
+    box-shadow: 0 0 1rem 2px rgb(255, 255, 255);
+}
+.addBookImg {
+    width: 40px;
+}
+
+.addBookDiv {
+    color: white;
+    position: fixed;
+    border: 4px solid orange;
+    outline: solid white 2px;
+    background: linear-gradient(to bottom, rgba(1, 9, 36, 0.87),rgba(11, 79, 105));
+    backdrop-filter: blur(1rem);
+    border-radius: 0.5rem;
+    padding: 20px;
+    top: 2.7rem;
+    left: 6.5rem;
+    z-index: 1;
+    width: 400px;
+    height: 170px;
+}
+.bookInfo {
+    margin-bottom: 1rem;
+}
+.bookInfo2 {
+    display: flex;
+    gap: 5px;
+}
+
+input {
+    height: 1.7rem;
+    margin: 5px;
+}
+
+.div1 {
+    background-color: rgba(230, 230, 230, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bookCard {
+    display: flex;
+    flex-direction: column;
+    width: 14rem;
+    height: 18rem;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    border: solid rgba(235, 144, 8, 0.521);
+    transition: all 200ms ease;
+}
+.div1 > .bookCard:not(:last-child):hover {
+    margin: 0 7rem;
+}
+.div1 > .bookCard:last-child:hover {
+    margin-left: 7rem;
+}
+
+.card2 {
+    position: relative;
+    right: 7rem;
+}
+.card3 {
+    position: relative;
+    right: 14rem;
+}
+.card4 {
+    position: relative;
+    right: 21rem;
+}
+.card5 {
+    position: relative;
+    right: 28rem;
+}
+.card6 {
+    position: relative;
+    right: 35rem;
+}
+
+.section1 {
+    flex: 3;
+    border-radius: inherit;
+    background-size: 200px;
+}
+.section2 {
+    flex: 2;
+    border-radius: inherit;
+    background-color: mintcream;
+    overflow: hidden;
+}
+
+h5 {
+    margin: 10px;
+    font-weight: 500;
+}
+
+.name {
+    font-weight: 750;
+}
+
+.div2 {
+    background-color: paleturquoise;
+    height: 100%;
+    transition: all 1000ms ease;
+}
+
+.dim {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+
+.bookTittle {
+    flex: 1;
+    font-size: 5rem;
+    margin-left: 8rem;
+    color: white;
+    font-weight: bolder;
+}
+
+.bookSummary {
+    flex: 2;
+}
