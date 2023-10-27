@@ -9,28 +9,28 @@
 </head>
 <body>
     <div class="cover"></div>
-    <di class="container">
+    <div class="container">
         <button class="addBook"><img class="addBookImg" src="images/icons8-book-shelf-94.png" alt="Add book button"></button>
-        <form action="#" class="addBookDiv">
+        <div class="addBookDiv">
             <div class="bookInfo">
                 <div style="margin-bottom: 5px;"><h3>Want to add another book?</34></div>
                 <fieldset>
                     <legend style="padding-left: 15px;">Book Name</legend>
-                    <input aria-label="book name" style="width: 95%;" class="regInfoInput" type="text">
+                    <input aria-label="bookName" style="width: 95%;" name="bookName" class="bookName" type="text">
                 </fieldset>
             </div>
             <div class="bookInfo2">
                 <fieldset style="flex: 1;">
                     <legend style="padding-left: 15px;">Book Author</legend>
-                    <input aria-label="book author" style="width: 90%;" class="regInfoInput" type="text">
+                    <input aria-label="book author" style="width: 90%;" class="bookAuthor" type="text">
                 </fieldset>
                 <fieldset style="flex: 1;">
                     <legend style="padding-left: 10px;">Book Year</legend>
-                    <input aria-label="book year" style="width: 40%;" class="regInfoInput" type="text">
+                    <input aria-label="book year" style="width: 40%;" class="bookYear" type="text">
                 </fieldset>
             </div>
             <div class="formButton" style="display: flex;"><button type="submit" class="button">Done</button></div>
-        </form>
+        </div>
         <div class="div1">
             <div class="bookCard card1" id="1">
                 <div class="section1"></div>
@@ -80,7 +80,7 @@
                     <h5>Year: <span class="year"></span></h5>
                 </div>
             </div>
-            <div class="placeholderBookCard card7" id="7">
+            <div class="placeholderBookCard card0">
                 <div class="section1"></div>
                 <div class="section2">
                     <h5>Book Name: <span class="name"></span></h5>
@@ -95,6 +95,6 @@
                 <div class="bookSummary"></div>    
             </div>
         </div>
-    </di>
+    </div>
 </body>
 </html>

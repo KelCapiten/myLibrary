@@ -26,29 +26,32 @@ const book6 = new book("6", false, "To Kill a Mockingbird", "Harper Lee", 281, "
 
 let booksArray = [book1, book2, book3, book4, book5, book6];
 
-(function(booksArray) {
+let displayBooks = (function() {
+    const func = function(booksArray) {
+        const bookSection = document.querySelectorAll(".bookCard");
+        let count = 0;
 
-    const bookSection = document.querySelectorAll(".bookCard");
+        bookSection.forEach(section => {
+            let currentBook = booksArray[count];
+            const name = section.querySelector(".name");
+            const author = section.querySelector(".author");
+            const year = section.querySelector(".year");
+            const wallpaper = section.querySelector(".section1");
 
-    let count = 0;
+            name.innerHTML = `${currentBook.name}`;
+            author.innerHTML = `${currentBook.author}`;
+            year.innerHTML = `${currentBook.year}`;
+            wallpaper.style.backgroundImage = `${currentBook.cover}`;
 
-    bookSection.forEach(section => {
-        let currentBook = booksArray[count];
-        const name = section.querySelector(".name");
-        const author = section.querySelector(".author");
-        const year = section.querySelector(".year");
-        const wallpaper = section.querySelector(".section1");
+            name.style.color = currentBook.readIndicator();
 
-        name.innerHTML = `${currentBook.name}`;
-        author.innerHTML = `${currentBook.author}`;
-        year.innerHTML = `${currentBook.year}`;
-        wallpaper.style.backgroundImage = `${currentBook.cover}`;
+            count++;
+        })
+    };
 
-        name.style.color = currentBook.readIndicator();
-
-        count++;
-    })
-})(booksArray);
+    func(booksArray);  // Immediately invoke the function with booksArray
+    return func;  // Return the function reference
+})();
 
 function addBookToArray() {
     
@@ -62,38 +65,72 @@ document.querySelector(".div1").addEventListener('click', (event) => {
 let clicked = false;
 
 document.querySelector(".addBook").addEventListener('mouseover', () => {
-    const addBookDiv = document.querySelector(".addBookDiv");
-    addBookDiv.classList.add('addBookDivHover');
+    document.querySelector(".addBookDiv").classList.add('addBookDivHover');
 })
 document.querySelector(".addBook").addEventListener('mouseout', () => {
     if (clicked) {
         return
     } else {
-        const addBookDiv = document.querySelector(".addBookDiv");
-        addBookDiv.classList.remove('addBookDivHover');    
+        document.querySelector(".addBookDiv").classList.remove('addBookDivHover');    
     }
 })
 document.addEventListener('click', (event) => {
-    const addBookDiv = document.querySelector(".addBookDiv");
     const target = document.querySelector(".addBook > img");
     if (event.target == target && clicked) {
-        addBookDiv.classList.remove('addBookDivHover')
-        document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)"
+        document.querySelector(".addBookDiv").classList.remove('addBookDivHover');
+        document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)";
         document.querySelector(".cover").classList.remove("dim");
         document.querySelector(".placeholderBookCard").classList.remove("placeholderBookCardActive");
-        clicked = false
+        clicked = false;
         return
     }
+    if (event.target.localName == "button") {
+        let newBookNumber = booksArray.length + 1;
+        let bookName = document.querySelector(".bookName").value;
+        let bookAuthor = document.querySelector(".bookAuthor").value;
+        let bookYear = document.querySelector(".bookYear").value;
+
+        let newCard = document.querySelector(".card6").cloneNode(true);
+        newCard.classList.remove("card6");
+        newCard.classList.add(`card${newBookNumber}`);
+        newCard.removeAttribute('id');
+        newCard.id = `${newBookNumber}`;
+        document.querySelector(".div1").insertBefore(newCard, document.querySelector(".card0"));
+        newCard.style.position = "relative";
+        newCard.querySelector(".section1").style.backgroundImage = "";
+        newCard.style.right = `${((parseInt(document.getElementById(`${newBookNumber-1}`).id))-0)*7}rem`;
+
+        const newBook = new book(newBookNumber, false, bookName, bookAuthor, 0, "N/A", bookYear, "N/A", "N/A");
+        booksArray.push(newBook);
+        displayBooks(booksArray);
+
+        clicked = false;
+        document.querySelector(".addBookDiv").classList.remove('addBookDivHover');
+        document.querySelector(".placeholderBookCard").classList.remove("placeholderBookCardActive");
+        document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)";
+        document.querySelector(".cover").classList.remove("dim");
+    }
     if (event.target == target || event.target.localName == "input" || event.target.localName == "legend" || event.target.localName == "fieldset" || event.target.localName == "h3") {
-        clicked = true
-        document.querySelector(".addBook").style.backgroundColor = "white"
+        clicked = true;
+        document.querySelector(".addBook").style.backgroundColor = "white";
         document.querySelector(".cover").classList.add("dim");
         document.querySelector(".placeholderBookCard").classList.add("placeholderBookCardActive");
-        addBookDiv.classList.add('addBookDivHover')
+        document.querySelector(".addBookDiv").classList.add('addBookDivHover')
     } else {
-        clicked = false
-        document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)"
-        document.querySelector(".cover").classList.remove("dim")
-        addBookDiv.classList.remove('addBookDivHover')
+        clicked = false;
+        document.querySelector(".addBookDiv").classList.remove('addBookDivHover');
+        document.querySelector(".placeholderBookCard").classList.remove("placeholderBookCardActive");
+        document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)";
+        document.querySelector(".cover").classList.remove("dim");
+    }
+})
+document.addEventListener('keyup', (event) => {
+    if (document.activeElement.localName == "input") {
+        document.querySelector(".bookTittle").innerHTML = document.querySelector(".bookName").value;
+        document.querySelector(".placeholderBookCard .name").innerHTML = document.querySelector(".bookName").value;
+        document.querySelector(".placeholderBookCard .author").innerHTML = document.querySelector(".bookAuthor").value;
+        document.querySelector(".placeholderBookCard .year").innerHTML = document.querySelector(".bookYear").value;
+    } else {
+        return;
     }
 })
