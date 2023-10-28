@@ -95,10 +95,11 @@ input {
 
 .div1 {
     background-color: rgba(230, 230, 230, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    padding: 30px 200px;
+    height: 340px;
+    overflow-y: hidden;
     overflow-x: scroll;
 }
 
@@ -134,33 +135,31 @@ input {
     border-radius: 1rem;
     border: solid rgba(235, 144, 8, 0.521);
     transition: all 200ms ease;
+    position: relative;
 }
 .div1 > .bookCard:not(:last-child):hover {
-    margin: 0 7rem;
+    width: 15rem;
+    height: 21rem;
+    margin: 0 80px;
 }
 .div1 > .bookCard:last-child:hover {
-    margin-left: 7rem;
+    margin-left: 50px;
 }
 
 .card2 {
-    position: relative;
-    right: 7rem;
+    right: 50px;
 }
 .card3 {
-    position: relative;
-    right: 14rem;
+    right: 100px;
 }
 .card4 {
-    position: relative;
-    right: 21rem;
+    right: 150px;
 }
 .card5 {
-    position: relative;
-    right: 28rem;
+    right: 200px;
 }
 .card6 {
-    position: relative;
-    right: 35rem;
+    right: 250px;
 }
 
 .section1 {

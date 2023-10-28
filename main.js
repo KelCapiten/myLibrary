@@ -91,14 +91,14 @@ document.addEventListener('click', (event) => {
         let bookYear = document.querySelector(".bookYear").value;
 
         let newCard = document.querySelector(".card6").cloneNode(true);
+        newCard.style.position = "relative";
         newCard.classList.remove("card6");
         newCard.classList.add(`card${newBookNumber}`);
         newCard.removeAttribute('id');
         newCard.id = `${newBookNumber}`;
         document.querySelector(".div1").insertBefore(newCard, document.querySelector(".card0"));
-        newCard.style.position = "relative";
+        newCard.style.right = `${(newBookNumber-1)*50}rem`;
         newCard.querySelector(".section1").style.backgroundImage = "";
-        newCard.style.right = `${((parseInt(document.getElementById(`${newBookNumber-1}`).id))-0)*7}rem`;
 
         const newBook = new book(newBookNumber, false, bookName, bookAuthor, 0, "N/A", bookYear, "N/A", "N/A");
         booksArray.push(newBook);
