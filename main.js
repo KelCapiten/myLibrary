@@ -44,6 +44,10 @@ let displayBooks = (function() {
             wallpaper.style.backgroundImage = `${currentBook.cover}`;
 
             name.style.color = currentBook.readIndicator();
+            if (currentBook.read) {
+                section.querySelector(".readTrackBall").style.marginLeft = "auto";
+                section.querySelector(".readSlider").style.backgroundColor = "#32CD32"
+            }
 
             count++;
         })
@@ -56,11 +60,6 @@ let displayBooks = (function() {
 function addBookToArray() {
     
 }
-
-document.querySelector(".div1").addEventListener('click', (event) => {
-    document.querySelector(".div2").style.backgroundImage = event.target.style.backgroundImage;
-    document.querySelector(".bookTittle").innerHTML = event.target.nextElementSibling.children[0].children[0].innerHTML;
-})
 
 let clicked = false;
 
@@ -76,6 +75,11 @@ document.querySelector(".addBook").addEventListener('mouseout', () => {
 })
 document.addEventListener('click', (event) => {
     const target = document.querySelector(".addBook > img");
+    if (event.target.style.backgroundImage !== "") {
+        document.querySelector(".div2").style.backgroundImage = event.target.style.backgroundImage;
+        document.querySelector(".bookTittle").innerHTML = event.target.nextElementSibling.children[0].children[0].innerHTML;
+    }
+
     if (event.target == target && clicked) {
         document.querySelector(".addBookDiv").classList.remove('addBookDivHover');
         document.querySelector(".addBook").style.backgroundColor = "rgba(105, 170, 201, 0.836)";
@@ -84,6 +88,39 @@ document.addEventListener('click', (event) => {
         clicked = false;
         return
     }
+        
+    function handleReadSlider(event) {
+        if (event.target.children[0].style.marginLeft == "auto") {
+            event.target.children[0].style.marginLeft = "";
+            event.target.children[0].style.marginRight = "";
+            event.target.style.backgroundColor = "black";
+        } else {
+            event.target.children[0].style.marginRight = "";
+            event.target.children[0].style.marginLeft = "auto";
+            event.target.style.backgroundColor = "#32CD32";
+        }
+    }
+    
+    function handleReadTrackBall(event) {
+        if (event.target.style.marginLeft == "auto") {
+            event.target.style.marginLeft = "";
+            event.target.style.marginRight = "";
+            event.target.parentElement.style.backgroundColor = "black";
+        } else {
+            event.target.style.marginRight = "";
+            event.target.style.marginLeft = "auto";
+            event.target.parentElement.style.backgroundColor = "#32CD32";
+        }
+    }
+    
+    if (event.target.classList.contains("readSlider")) {
+        handleReadSlider(event);
+        return;
+    } else if (event.target.classList.contains("readTrackBall")) {
+        handleReadTrackBall(event);
+        return;
+    }
+
     if (event.target.localName == "button") {
         let newBookNumber = booksArray.length + 1;
         let bookName = document.querySelector(".bookName").value;
