@@ -94,10 +94,20 @@ document.addEventListener('click', (event) => {
             event.target.children[0].style.marginLeft = "";
             event.target.children[0].style.marginRight = "";
             event.target.style.backgroundColor = "black";
+
+            let bookCardNumber = event.target.classList[1];
+            let bookIndex = bookCardNumber[bookCardNumber.length-1]-1;
+            booksArray[bookIndex].read = false;
+            displayBooks(booksArray);
         } else {
             event.target.children[0].style.marginRight = "";
             event.target.children[0].style.marginLeft = "auto";
             event.target.style.backgroundColor = "#32CD32";
+
+            let bookCardNumber = event.target.classList[1];
+            let bookIndex = bookCardNumber[bookCardNumber.length-1]-1;
+            booksArray[bookIndex].read = true;
+            displayBooks(booksArray);
         }
     }
     
@@ -106,10 +116,20 @@ document.addEventListener('click', (event) => {
             event.target.style.marginLeft = "";
             event.target.style.marginRight = "";
             event.target.parentElement.style.backgroundColor = "black";
+
+            let bookCardNumber = event.target.classList[1];
+            let bookIndex = bookCardNumber[bookCardNumber.length-1]-1;
+            booksArray[bookIndex].read = false;
+            displayBooks(booksArray);
         } else {
             event.target.style.marginRight = "";
             event.target.style.marginLeft = "auto";
             event.target.parentElement.style.backgroundColor = "#32CD32";
+
+            let bookCardNumber = event.target.classList[1];
+            let bookIndex = bookCardNumber[bookCardNumber.length-1]-1;
+            booksArray[bookIndex].read = true;
+            displayBooks(booksArray);
         }
     }
     
@@ -126,10 +146,14 @@ document.addEventListener('click', (event) => {
         let bookName = document.querySelector(".bookName").value;
         let bookAuthor = document.querySelector(".bookAuthor").value;
         let bookYear = document.querySelector(".bookYear").value;
-
         let newCard = document.querySelector(".card6").cloneNode(true);
+
         newCard.classList.remove("card6");
         newCard.classList.add(`card${newBookNumber}`);
+        newCard.querySelector(".readSlider").classList.remove(`card6`);
+        newCard.querySelector(".readTrackBall").classList.remove(`card6`);
+        newCard.querySelector(".readSlider").classList.add(`card${newBookNumber}`);
+        newCard.querySelector(".readTrackBall").classList.add(`card${newBookNumber}`);
         newCard.removeAttribute('id');
         newCard.id = `${newBookNumber}`;
         document.querySelector(".div1").insertBefore(newCard, document.querySelector(".card0"));
