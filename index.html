@@ -24,19 +24,20 @@
                     <legend style="padding-left: 15px;">Book Author</legend>
                     <input aria-label="book author" style="width: 90%;" class="bookAuthor" type="text">
                 </fieldset>
-                <fieldset style="flex: 1;">
+                <fieldset style="display: flex; flex: 1;">
                     <legend style="padding-left: 10px;">Book Year</legend>
                     <input aria-label="book year" style="width: 40%;" class="bookYear" type="text">
+                    <div style="margin-left: auto; margin-bottom: 5px;" class="readBTNContainer"><h6>Read?</h6><div class="readSlider"><div class="readTrackBall"></div></div></div>
                 </fieldset>
             </div>
-            <div class="formButton" style="display: flex;"><button type="submit" class="button">Done</button></div>
+            <div class="formButton" style="display: flex;"><button type="submit" class="button doneBTN">Done</button></div>
         </div>
         <div class="div1">
             <div class="bookCard card1" id="1">
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card1"><div class="readTrackBall card1"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card1"></button>
+                        <button class="deleteBTNdiv card1"><img class="deleteBTN card1" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -49,7 +50,7 @@
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card2"><div class="readTrackBall card2"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card2"></button>
+                        <button class="deleteBTNdiv card2"><img class="deleteBTN card2" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -62,7 +63,7 @@
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card3"><div class="readTrackBall card3"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card3"></button>
+                        <button class="deleteBTNdiv card3"><img class="deleteBTN card3" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -75,7 +76,7 @@
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card4"><div class="readTrackBall card4"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card4"></button>
+                        <button class="deleteBTNdiv card4"><img class="deleteBTN card4" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -88,7 +89,7 @@
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card5"><div class="readTrackBall card5"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card5"></button>
+                        <button class="deleteBTNdiv card5"><img class="deleteBTN card5" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -101,7 +102,7 @@
                 <div class="section1">
                     <div class="delete">
                         <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider card6"><div class="readTrackBall card6"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button card6"></button>
+                        <button class="deleteBTNdiv card6"><img class="deleteBTN card6" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
@@ -113,12 +114,11 @@
             <div class="placeholderBookCard card0">
                 <div class="section1">
                     <div class="delete">
-                        <div class="readBTNContainer"><h6>Read?</h6><div class="readSlider"><div class="readTrackBall"></div></div></div>
-                        <button class="deleteBTN"><img src="images/disposal.png" alt="delete button"></button>
+                        <button class="deleteBTNdiv card0"><img class="deleteBTN card0" src="images/disposal.png" alt="delete button"></button>
                     </div>
                 </div>
                 <div class="section2">
-                    <h5>Book Name: <span class="name"></span></h5>
+                    <h5>Book Name: <span class="card0name"></span></h5>
                     <h5>Author: <span class="author"></span></h5>
                     <h5>Year: <span class="year"></span></h5>
                 </div>

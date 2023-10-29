@@ -168,7 +168,7 @@ input {
     transition: all 200ms ease;
     height: 30px;
 }
-.deleteBTN {
+.deleteBTNdiv {
     margin-top: 2px;
     width: 26px;
     height: 26px;
@@ -176,16 +176,16 @@ input {
     border: 2px solid;
     background-color: black;
 }
-.deleteBTN:hover {
+.deleteBTNdiv:hover {
     width: 27px;
     height: 27px;
     background-color: rgb(100, 100, 100);
 }
-.deleteBTN img {
+.deleteBTN {
     width: 20px;
     transition: all 200ms ease;
 }
-.deleteBTN img:hover{
+.deleteBTN:hover{
     width: 18px;
 }
 
